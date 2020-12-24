@@ -13,25 +13,25 @@ class CustomersController < ApplicationController
     
     
     def update
-        @customer = ItemOrder.find(params[:id])
-        @customer.update(item_order_params)
+        @customer = Customer.find(params[:id])
+        @customer.update(customer_params)
         render json: @customer, status: 200
     end
     
-    def destroy
-        @item_order = ItemOrder.find(params[:id])
-        item_orderId = @item_order.id
-        @item_order.destroy
-        render json: {message:"Item Order deleted", item_orderId:item_orderId}
-    end
+    # def destroy
+    #     @customer = Customer.find(params[:id])
+    #     customerId = @customer.id
+    #     @customer.destroy
+    #     render json: {message:"Customer deleted", customerId:customerId}
+    # end
     
     def show
-        @item_order = ItemOrder.find(params[:id])
-        render json: @item_order, status: 200
+        @customer = Customer.find(params[:id])
+        render json: @customer, status: 200
     end
     
     private
-    def item_order_params
-        params.permit(:cart_id, :menu_item_id)
+    def customer_params
+        params.permit(:name, :phone_number, :address)
     end
 end
