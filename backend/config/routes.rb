@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :item_ordereds
+  resources :item_orders
   resources :carts
   resources :customers
   resources :menu_items
