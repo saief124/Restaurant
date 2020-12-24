@@ -24,9 +24,10 @@ function NavBar() {
                  <NavDropdown title="Menu" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/menu">Full Menu</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.1">Appetizers</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Entrees</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Desserts</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.1">Breakfast</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Baked Goods</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Appetizers</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Salads</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link href="/about">About</Nav.Link>
                 <Nav.Link href="/contact">Contact & Info </Nav.Link>

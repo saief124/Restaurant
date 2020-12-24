@@ -2,7 +2,10 @@ import React from 'react'
 import {Carousel} from 'react-bootstrap'
 
 
-function LandingPage() {
+
+class LandingPage extends React.Component {
+
+    render(){
     return (
         <Carousel>
             <Carousel.Item interval={5000}>
@@ -27,7 +30,7 @@ function LandingPage() {
                 />
             </Carousel.Item>
         </Carousel>
-    )
+    )}
 }
 
 export default LandingPage
