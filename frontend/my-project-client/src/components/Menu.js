@@ -2,7 +2,7 @@ import React from 'react'
 import MenuItem from './MenuItem'
 import LMenu from './LMenu'
 
-let menuUrl = "http://localhost:3001/menu_items"
+let menuUrl = "http://localhost:3000/menu_items"
 
 class Menu extends React.Component {
     constructor() { 
