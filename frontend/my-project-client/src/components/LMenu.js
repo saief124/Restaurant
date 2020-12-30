@@ -19,6 +19,7 @@ export default function LMenu(props) {
     return (
         <div className="column is-6">
         <h2> Breakfast </h2>
+        
         <Columns> 
             <Columns.Column> 
                 {breakfast.map(item => 

@@ -30,8 +30,8 @@ Cart.destroy_all
 ItemOrder.destroy_all
 
 customers = [
-    {name: 'Bob', phone_number: '123-456-7890', address: 'San Antonio, Tx'},
-    {name: 'John', phone_number: '123-456-7890', address: 'Houston, Tx'}
+    {name: 'Bob', phone_number: '123-456-7890', address: 'San Antonio, Tx', password: '123'},
+    {name: 'John', phone_number: '123-456-7890', address: 'Houston, Tx', password: 'abc'}
 ]
 customers.each { |customer| Customer.create!(customer) }
 

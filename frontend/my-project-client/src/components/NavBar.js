@@ -31,6 +31,8 @@ function NavBar() {
                 </NavDropdown>
                 <Nav.Link href="/about">About</Nav.Link>
                 <Nav.Link href="/contact">Contact & Info </Nav.Link>
+                <Nav.Link href="/signup">Sign Up</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
                 <OrderContainer />
             </Nav>
         </Navbar>
