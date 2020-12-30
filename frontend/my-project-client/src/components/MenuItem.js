@@ -5,6 +5,7 @@ export default function MenuItem(props) {
         <div>
             {props.item.name} {props.item.price} 
             {props.item.description}
+            
         </div>
     )
 }
