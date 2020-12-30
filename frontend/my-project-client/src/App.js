@@ -8,7 +8,7 @@ import Contact from './components/Contact'
 import OrderContainer from './components/OrderContainer'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 
 class App extends React.Component { 
 
@@ -21,9 +21,18 @@ class App extends React.Component {
             <Route exact path ="/menu" component= {Menu} />
             <Route exact path ="/about" component= {About} />
             <Route exact path ="/contact" component= {Contact} />
-            <Route exact path ="/order" component= {OrderContainer} />
+            <Route exact path ="/order" component= {()=>{
+              if(localStorage.getItem('auth_key')){
+                return <OrderContainer />
+              }else{
+                return <Redirect to="/login"/>
+              }}} /> 
             <Route exact path ="/signup" component= {SignUp}/>
             <Route exact path ="/login" component= {Login}/>
+            <Route exact path ="/logout" component = {()=>{
+              localStorage.clear()
+              return <Redirect to="/login"/>
+            }}/>
           </Router>
         </div>
       );

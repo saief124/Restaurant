@@ -36,8 +36,8 @@ class Login extends Component {
           },
           body: JSON.stringify(newCustomer)
       }).then(res=>res.json())
-      .then(cus=>console.log(cus))
-      
+      .then(token=>localStorage.setItem('auth_key', token["auth_key"]))
+    
   }
 
   render(){
