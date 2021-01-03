@@ -11,12 +11,24 @@ import Login from './components/Login'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 
 class App extends React.Component { 
-
+    state={
+      isLoggedIn: false
+    }
+    componentDidMount(){
+      if(localStorage.getItem('auth_key')){
+        this.setState({isLoggedIn: true})
+      }
+    }
+    handleLogin=()=>{
+      if(localStorage.getItem('auth_key')){
+        this.setState({isLoggedIn: true})
+      }
+    }
     render(){
       return (
         <div className="App">
           <Router> 
-            <NavBar />
+            <NavBar isLoggedIn={this.state.isLoggedIn}/>
             <Route exact path ="/" component= {LandingPage} />
             <Route exact path ="/menu" component= {Menu} />
             <Route exact path ="/about" component= {About} />
@@ -27,10 +39,13 @@ class App extends React.Component {
               }else{
                 return <Redirect to="/login"/>
               }}} /> 
-            <Route exact path ="/signup" component= {SignUp}/>
-            <Route exact path ="/login" component= {Login}/>
+            <Route exact path ="/signup" component= {()=><SignUp handleLogin={this.handleLogin}/>}/>
+            <Route exact path ="/login" component= {()=>{
+              return <Login handleLogin={this.handleLogin}/>
+            }}/>
             <Route exact path ="/logout" component = {()=>{
               localStorage.clear()
+              this.setState({isLoggedIn: false})
               return <Redirect to="/login"/>
             }}/>
           </Router>
