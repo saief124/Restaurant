@@ -29,6 +29,7 @@ export default function LMenu(props) {
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>
@@ -41,6 +42,7 @@ export default function LMenu(props) {
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>
@@ -53,6 +55,7 @@ export default function LMenu(props) {
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>
@@ -65,6 +68,7 @@ export default function LMenu(props) {
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>
@@ -77,6 +81,7 @@ export default function LMenu(props) {
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>
@@ -89,6 +94,7 @@ export default function LMenu(props) {
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>      

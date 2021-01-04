@@ -1,5 +1,6 @@
 import React from 'react'
 import { Component } from 'react';
+import {withRouter} from 'react-router';
 
 class SignUp extends Component {
     constructor(){
@@ -30,7 +31,7 @@ class SignUp extends Component {
                 password: this.state.password
             }
         }
-        //console.log(newCustomer)
+        
         fetch('http://localhost:3000/signup',{
             method: 'POST',
             headers:{
@@ -38,7 +39,11 @@ class SignUp extends Component {
             },
             body: JSON.stringify(newCustomer)
         }).then(res=>res.json())
-        .then(cus=>console.log(cus))
+        .then(token=> {
+            localStorage.setItem('auth_key', token["auth_key"])
+            this.props.handleLogin()
+            this.props.history.push('./')
+          })
         
     }
 
@@ -49,7 +54,7 @@ class SignUp extends Component {
             <input type="text" name="name" value={this.state.name} placeholder ="Name" onChange={this.handleChange}/><br></br>
             <input type="text" name="address" value={this.state.address} placeholder ="Address" onChange={this.handleChange}/><br></br>
             <input type="text" name="phone" value={this.state.phone} placeholder ="Phone number" onChange={this.handleChange}/><br></br>
-            <input type="text" name="password" value={this.state.password} placeholder= "password" onChange={this.handleChange}/><br></br>
+            <input type="password" name="password" value={this.state.password} placeholder= "password" onChange={this.handleChange}/><br></br>
             <button>Submit</button>
             
         </form>
@@ -57,4 +62,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
