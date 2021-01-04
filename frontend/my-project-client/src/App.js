@@ -6,6 +6,7 @@ import Menu from './components/Menu'
 import About from './components/About'
 import Contact from './components/Contact'
 import OrderContainer from './components/OrderContainer'
+import Cart from './components/Cart'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
@@ -36,6 +37,12 @@ class App extends React.Component {
             <Route exact path ="/order" component= {()=>{
               if(localStorage.getItem('auth_key')){
                 return <OrderContainer />
+              }else{
+                return <Redirect to="/login"/>
+              }}} /> 
+            <Route exact path ="/cart" component= {()=>{
+              if(localStorage.getItem('auth_key')){
+                return <Cart />
               }else{
                 return <Redirect to="/login"/>
               }}} /> 

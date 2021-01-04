@@ -7,7 +7,11 @@ import Logo from '../images/Logo.svg'
 const handleLoginRender=(isLoggedIn)=>{
     if (isLoggedIn){
         return (
+            <>
             <Nav.Link href="/logout">Logout</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
+            <OrderContainer />
+            </>
         )
     }else{
     return (
@@ -51,7 +55,7 @@ function NavBar(props) {
                 /* <Nav.Link href="/signup">Sign Up</Nav.Link>
                 {props.isLoggedIn?
                 <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link href="/logout">Logout</Nav.Link>} */}
-                <OrderContainer />
+                
             </Nav>
         </Navbar>
     )
