@@ -1,14 +1,15 @@
 class ItemOrdersController < ApplicationController
-    # def index
-    #     item_orders = ItemOrder.all
-    #     render json: item_orders, status: 200
-    # end
+    def index
+        item_orders = ItemOrder.all
+        render json: item_orders, status: 200
+    end
 
     
-    # def create
-    #     item_order = ItemOrder.create(item_order_params)
-    #     render json: item_order, status: 201
-    # end
+    def create
+        byebug
+        item_order = ItemOrder.create(item_order_params)
+        render json: item_order, status: 201
+    end
 
     
     
@@ -30,9 +31,9 @@ class ItemOrdersController < ApplicationController
     #     render json: @item_order, status: 200
     # end
     
-    # private
-    # def item_order_params
-    #     params.permit(:cart_id, :menu_item_id)
-    # end
+    private
+    def item_order_params
+        params.require(:item_order).permit(:cart_id, :menu_item_id)
+    end
 
 end
