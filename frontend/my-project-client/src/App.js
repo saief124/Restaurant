@@ -9,9 +9,7 @@ import OrderContainer from './components/OrderContainer'
 import Cart from './components/Cart'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
-import Cart from './components/Cart'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
-let menuUrl = "http://localhost:3000/menu_items"
 
 class App extends React.Component { 
     state={
@@ -28,20 +26,20 @@ class App extends React.Component {
       }
     }
     render(){
-      console.log(this.state.cart)
+      
       return (
         <div className="App">
           <Router> 
             <NavBar isLoggedIn={this.state.isLoggedIn}/>
             <Route exact path ="/" component= {LandingPage} />
-            <Route exact path ="/menu" component={() => {
-              return <Menu menu={this.state.menu} addToCart={this.addToCart} />
-            }}/>
+            <Route exact path ="/menu" component={Menu} />
+            {/* //   return <Menu menu={this.state.menu} addToCart={this.addToCart} />
+            // }}/> */}
             <Route exact path ="/about" component= {About} />
             <Route exact path ="/contact" component= {Contact} />
-            <Route exact path ="/cart" component={() => {
+            {/* <Route exact path ="/cart" component={() => {
               return <Cart cart={this.state.cart} />
-            }}/>
+            }}/> */}
             <Route exact path ="/order" component= {()=>{
               if(localStorage.getItem('auth_key')){
                 return <OrderContainer />
