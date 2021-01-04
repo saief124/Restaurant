@@ -1,6 +1,7 @@
 import React from 'react'
 import RMenu from './RMenu'
 import CartContainer from './CartContainer'
+import { Row, Col } from 'react-bootstrap'
 
 let menuUrl = "http://localhost:3000/menu_items"
 
@@ -22,7 +23,7 @@ class OrderContainer extends React.Component {
     }
     displayTitle = () => {
         if (this.state.myorders.length > 0){
-          return 'Cart'
+          return 'My Order'
         }
       }
       removeOrder = (item) => {
@@ -31,6 +32,11 @@ class OrderContainer extends React.Component {
           myorders: items
         })
       }
+        
+
+
+      
+      
       
     render(){
         // console.log(this.state.myorders)
@@ -40,11 +46,12 @@ class OrderContainer extends React.Component {
             {/* <h1> Order container</h1>
             <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
             <CartContainer myorders={this.state.myorders} /> */}
+            {/* <LMenu menu={this.state.menu} handleOrders={this.handleOrders}/> */}
 
             <Row>
               <Col xs={12} md={8}>
               <h1> Order Container</h1>
-              <LMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
+              <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
               </Col>
               <Col xs={6} md={4}>
               <h1> {this.displayTitle()}</h1>
