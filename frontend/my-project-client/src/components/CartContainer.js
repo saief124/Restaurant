@@ -6,10 +6,11 @@ const cartContainer=(props)=> {
     return (
         <div>
             {
-                props.myorders.map(order=>
+                props.myorders.map(order =>
                     <Cart
                         key={order.id}
                             myorder={order}
+                                removeOrder={props.removeOrder}   
                     />
                 )
             }

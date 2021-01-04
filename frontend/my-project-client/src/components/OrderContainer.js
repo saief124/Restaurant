@@ -1,6 +1,7 @@
 import React from 'react'
 import RMenu from './RMenu'
 import CartContainer from './CartContainer'
+import { Row, Col } from 'react-bootstrap'
 
 let menuUrl = "http://localhost:3000/menu_items"
 let cartUrl = "http://localhost:3000/carts"
@@ -53,16 +54,43 @@ class OrderContainer extends React.Component {
         this.setState({myorders: newOrder})
         
     }
+    displayTitle = () => {
+        if (this.state.myorders.length > 0){
+          return 'My Order'
+        }
+      }
+      removeOrder = (item) => {
+        const items = this.state.myorders.filter(food => food.id !== item.id)
+        this.setState({
+          myorders: items
+        })
+      }
+        
+
+
+      
+      
       
     render(){
         // console.log(this.state.myorders)
     return (
 
         <div>
-            <h1> Order container</h1>
-            <button onClick={()=>this.readytoOrder()}>Ready To Order?</button>
-            <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
-            <CartContainer myorders={this.state.myorders} />
+           
+           
+          
+
+            <Row>
+              <Col xs={12} md={8}>
+              <h1> Order Container</h1>
+              <button onClick={()=>this.readytoOrder()}>Ready To Order?</button>
+              <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
+              </Col>
+              <Col xs={6} md={4}>
+              <h1> {this.displayTitle()}</h1>
+              <CartContainer myorders={this.state.myorders} removeOrder={this.removeOrder} />
+             </Col>
+            </Row>
         </div>
     )
     }

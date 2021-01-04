@@ -26,14 +26,20 @@ class App extends React.Component {
       }
     }
     render(){
+      
       return (
         <div className="App">
           <Router> 
             <NavBar isLoggedIn={this.state.isLoggedIn}/>
             <Route exact path ="/" component= {LandingPage} />
-            <Route exact path ="/menu" component= {Menu} />
+            <Route exact path ="/menu" component={Menu} />
+            {/* //   return <Menu menu={this.state.menu} addToCart={this.addToCart} />
+            // }}/> */}
             <Route exact path ="/about" component= {About} />
             <Route exact path ="/contact" component= {Contact} />
+            {/* <Route exact path ="/cart" component={() => {
+              return <Cart cart={this.state.cart} />
+            }}/> */}
             <Route exact path ="/order" component= {()=>{
               if(localStorage.getItem('auth_key')){
                 return <OrderContainer />

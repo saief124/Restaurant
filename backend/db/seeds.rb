@@ -56,4 +56,3 @@ item_orders = [
     {cart_id: Cart.second.id, menu_item_id: MenuItem.second.id}
 ]
 item_orders.each { |item_order| ItemOrder.create!(item_order) }
-
