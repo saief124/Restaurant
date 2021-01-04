@@ -52,6 +52,7 @@ carts.each { |cart| Cart.create!(cart) }
 
 item_orders = [
     {cart_id: Cart.first.id, menu_item_id: MenuItem.first.id},
+    {cart_id: Cart.first.id, menu_item_id: MenuItem.second.id},
     {cart_id: Cart.second.id, menu_item_id: MenuItem.second.id}
 ]
 item_orders.each { |item_order| ItemOrder.create!(item_order) }

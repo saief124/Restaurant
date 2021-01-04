@@ -24,6 +24,7 @@ export default function LMenu(props) {
             <Columns.Column> 
                 {breakfast.map(item => 
                     <MenuItem 
+                    addToCart={props.addToCart}
                     key={item.id} 
                     item={item} 
                     price={item.price}
