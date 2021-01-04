@@ -9,7 +9,7 @@ class Menu extends React.Component {
         super()
         this.state = {
           menu: [],
-          myorders:[]
+          // myorders:[]
         }
       }
   
@@ -19,18 +19,18 @@ class Menu extends React.Component {
         .then(menu => this.setState({menu}))
       }
 
-      handleOrders=(item)=>{
-        const newOrder=[...this.state.myorders,item]
-        this.setState({myorders: newOrder})
-      }
+      // handleOrders=(item)=>{
+      //   const newOrder=[...this.state.myorders,item]
+      //   this.setState({myorders: newOrder})
+      // }
 
     render(){
       // console.log(this.state.myorders)
         return (
         <div>
             <h1> Menu Container</h1>
-            <LMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
-            <CartContainer myorders={this.state.myorders} />
+            <LMenu menu={this.state.menu}/>
+            {/* <CartContainer myorders={this.state.myorders} /> */}
         </div>
     )
 }}
