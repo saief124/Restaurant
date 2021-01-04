@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react';
 import {withRouter} from 'react-router';
+// let cartUrl = "http://localhost:3000/carts"
 
 class SignUp extends Component {
     constructor(){
@@ -13,7 +14,7 @@ class SignUp extends Component {
 
         }
     }
-
+ 
     handleChange=(e)=> {
         const {name, value} = e.target
         this.setState({
@@ -29,8 +30,11 @@ class SignUp extends Component {
                 phone_number: this.state.phone,
                 address: this.state.address,
                 password: this.state.password
+                
             }
+            
         }
+
         
         fetch('http://localhost:3000/signup',{
             method: 'POST',
@@ -44,8 +48,8 @@ class SignUp extends Component {
             this.props.handleLogin()
             this.props.history.push('./')
           })
-        
     }
+
 
     render(){
     return (
