@@ -7,6 +7,7 @@ import Logo from '../images/Logo.svg'
 import LoginModal from "react-login-modal";
 
 
+
 function NavBar(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -18,7 +19,7 @@ function NavBar(props) {
             return (
                 <>
                 <Nav.Link href="/logout">Logout</Nav.Link>
-                <Nav.Link href="/cart">Cart</Nav.Link>
+                {/* <Nav.Link href="/cart">Cart</Nav.Link> */}
                 <OrderContainer />
                 </>
             )

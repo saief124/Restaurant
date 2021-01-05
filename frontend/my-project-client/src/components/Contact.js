@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
-
 function Contact() {
 
     const style = {
@@ -15,8 +14,10 @@ function Contact() {
         textAlign: "center"
     }
 
+
     return (
         <div>
+            
             <Container> 
                 <Row style={style}> Location </Row> <br></br>
                 <Row style={sub}> Just a short walk from NYU, Silver Spurs on Houston St. & LaGuardia Pl. in New York is the perfect place to enjoy a colossal burger, brunch on the weekends, or drinks with your friends. </Row> <br></br>
