@@ -1,6 +1,8 @@
 import React from 'react'
 import { Component } from 'react';
 import {withRouter} from 'react-router';
+import {Button} from 'react-bootstrap'
+
 
 class SignUp extends Component {
     constructor(){
@@ -50,12 +52,11 @@ class SignUp extends Component {
     render(){
     return (
         <form onSubmit={this.handleSubmit}>
-            <h1>Sign up</h1>
-            <input type="text" name="name" value={this.state.name} placeholder ="Name" onChange={this.handleChange}/><br></br>
+            <input type="text" name="name" value={this.state.name} placeholder ="Username" onChange={this.handleChange}/><br></br>
             <input type="text" name="address" value={this.state.address} placeholder ="Address" onChange={this.handleChange}/><br></br>
-            <input type="text" name="phone" value={this.state.phone} placeholder ="Phone number" onChange={this.handleChange}/><br></br>
-            <input type="password" name="password" value={this.state.password} placeholder= "password" onChange={this.handleChange}/><br></br>
-            <button>Submit</button>
+            <input type="text" name="phone" value={this.state.phone} placeholder ="Phone Number" onChange={this.handleChange}/><br></br>
+            <input type="password" name="password" value={this.state.password} placeholder= "Password" onChange={this.handleChange}/><br></br>
+            <Button type="submit" text-align="center">Submit</Button>
             
         </form>
     )

@@ -29,7 +29,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <Router> 
-            <NavBar isLoggedIn={this.state.isLoggedIn}/>
+            <NavBar handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn} />
             <Route exact path ="/" component= {LandingPage} />
             <Route exact path ="/menu" component= {Menu} />
             <Route exact path ="/about" component= {About} />
@@ -53,7 +53,7 @@ class App extends React.Component {
             <Route exact path ="/logout" component = {()=>{
               localStorage.clear()
               this.setState({isLoggedIn: false})
-              return <Redirect to="/login"/>
+              return <Redirect to="/"/>
             }}/>
           </Router>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react';
 import {withRouter} from 'react-router';
+import {Button} from 'react-bootstrap'
 
 class Login extends Component {
   constructor(){
@@ -11,6 +12,9 @@ class Login extends Component {
 
       }
   }
+
+  handleSignup = (username, email, password) => {};
+  handleLogin = (username, password) => {}
 
   handleChange=(e)=> {
       const {name, value} = e.target
@@ -43,11 +47,13 @@ class Login extends Component {
 
   render(){
   return (
+      
+    
       <form onSubmit={this.handleSubmit}>
-          <h1>Login</h1>
-          <input type="text" name="name" value={this.state.name} placeholder ="Name" onChange={this.handleChange}/><br></br>        
-          <input type="password" name="password" value={this.state.password} placeholder= "password" onChange={this.handleChange}/><br></br>
-          <button>Submit</button>
+          {/* <h1>Login</h1> */}
+          <input type="text" name="name" value={this.state.name} placeholder ="Username" onChange={this.handleChange}/><br></br>        
+          <input type="password" name="password" value={this.state.password} placeholder= "Password" onChange={this.handleChange}/><br></br>
+          <Button type="submit" text-align="center">Submit</Button>
           
       </form>
   )

@@ -26,7 +26,7 @@ class Menu extends React.Component {
     render(){
         return (
         <div>
-                <Container>
+                <Container fluid>
                   <Row>
                     <Col><MenuCol1 menu={this.state.menu}/></Col>
                     <Col><MenuCol2 menu={this.state.menu}/></Col>

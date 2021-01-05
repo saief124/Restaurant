@@ -8,7 +8,6 @@ export default function MenuItem(props) {
         color: "#DF2424",
     } 
 
-
     return (
         <div>
             <p> 
