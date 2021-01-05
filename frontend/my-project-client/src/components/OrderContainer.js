@@ -26,12 +26,25 @@ class OrderContainer extends React.Component {
           return 'My Order'
         }
       }
-      removeOrder = (item) => {
-        const items = this.state.myorders.filter(food => food.id !== item.id)
+    //   removeOrder = (item) => {
+    //     const items = this.state.myorders.filter(food => food.id !== item.id)
+    //     this.setState({
+    //       myorders: items
+    //     })
+    //   }
+    removeOrder = (item) => {
+        let array = this.state.myorders;
+        
+        let i = array.indexOf(item);
+            if (i > -1) {
+                array.splice(i, 1);
+            }
         this.setState({
-          myorders: items
+            myorders: array
         })
-      }
+    }
+      
+      
         
 
 
@@ -39,15 +52,10 @@ class OrderContainer extends React.Component {
       
       
     render(){
-        // console.log(this.state.myorders)
+        
     return (
 
         <div>
-            {/* <h1> Order container</h1>
-            <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
-            <CartContainer myorders={this.state.myorders} /> */}
-            {/* <LMenu menu={this.state.menu} handleOrders={this.handleOrders}/> */}
-
             <Row>
               <Col xs={12} md={8}>
               <h1> Order Container</h1>
