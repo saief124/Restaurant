@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     
     def create
         @customer = Customer.create(customer_params)
-        payload = {custom_id: @customer.id}
+        payload = {customer_id: @customer.id}
         token = JWT.encode(payload,'secretkey','HS256')
         render :json => {auth_key: token}
     

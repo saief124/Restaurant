@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Cart(props) {
-    console.log(props)
+    // console.log(props)
     return (
         <div>
             <br></br>
@@ -10,6 +10,7 @@ export default function Cart(props) {
             <button onClick={()=>props.removeOrder(props.myorder)}>Delete</button>
             
         
+            <button onClick={()=>props.addOrder(props.myorder)}>Add</button>
         </div>
     )
 }

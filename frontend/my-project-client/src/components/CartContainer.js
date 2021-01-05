@@ -26,7 +26,8 @@ const cartContainer=(props)=> {
                     <Cart
                         key={index}
                             myorder={order}
-                                removeOrder={props.removeOrder}  
+                                removeOrder={props.removeOrder}
+                                    addOrder={props.addOrder}   
                     />
                 )
             }

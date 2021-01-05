@@ -1,6 +1,8 @@
 class MenuItemsController < ApplicationController
 
+    before_action :authenticate!, only: [:index]
     def index
+        
         menu_items = MenuItem.all
         render json: menu_items, status: 200
 
