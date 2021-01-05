@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap'
 
 let menuUrl = "http://localhost:3000/menu_items"
 let cartUrl = "http://localhost:3000/carts"
+let item_orderUrl = "http://localhost:3000/item_orders"
 
 class OrderContainer extends React.Component {
     state={
@@ -21,8 +22,7 @@ class OrderContainer extends React.Component {
             }
         })
         .then(res => res.json())
-        .then(menu => this.setState({menu}))
-        
+        .then(menu => this.setState({menu}))  
       }
 
     createCart=()=>{
@@ -50,35 +50,67 @@ class OrderContainer extends React.Component {
     }
     
     handleOrders=(item)=>{
+
         const newOrder=[...this.state.myorders,item]
         this.setState({myorders: newOrder})
-        
+        // const order_item={
+        //     cart_id: localStorage.getItem('cart_id'),
+        //     menu_item_id: item.id
+        // }
+        // fetch(item_orderUrl,{
+        //     method: 'POST',
+        //     headers:{
+        //         'Content-Type': 'application/json',
+        //         'Auth-Key': localStorage.getItem('auth_key')
+        //     },
+        //     body: JSON.stringify(order_item)
+        //     })
+        //     .then(res=>res.json())
+        //     .then(order=> {
+        //        console.log(order)
+        //     // localStorage.setItem('cart_id', cart.id)
+        // })
     }
     displayTitle = () => {
         if (this.state.myorders.length > 0){
           return 'My Order'
         }
       }
-      removeOrder = (item) => {
+    
+    removeOrder = (item) => {
         const items = this.state.myorders.filter(food => food.id !== item.id)
         this.setState({
           myorders: items
         })
-      }
+    }
+    
+    addOrder = (item)=>{
         
+        const order_item={
+            cart_id: localStorage.getItem('cart_id'),
+            menu_item_id: item.id
+        }
 
-
-      
-      
+        fetch(item_orderUrl,{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'Auth-Key': localStorage.getItem('auth_key')
+            },
+            body: JSON.stringify(order_item)
+            })
+            .then(res=>res.json())
+            .then(order=> {
+               console.log(order)
+            // localStorage.setItem('cart_id', cart.id)
+        })
+    }
       
     render(){
         // console.log(this.state.myorders)
     return (
 
         <div>
-           
-           
-          
 
             <Row>
               <Col xs={12} md={8}>
@@ -88,7 +120,7 @@ class OrderContainer extends React.Component {
               </Col>
               <Col xs={6} md={4}>
               <h1> {this.displayTitle()}</h1>
-              <CartContainer myorders={this.state.myorders} removeOrder={this.removeOrder} />
+              <CartContainer myorders={this.state.myorders} removeOrder={this.removeOrder} addOrder={this.addOrder}/>
              </Col>
             </Row>
         </div>

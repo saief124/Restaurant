@@ -9,9 +9,11 @@ class CartsController < ApplicationController
         render json: cart, status: 201
     end
 
-    # def show
-    #     cart = Cart.find_by(id: params[:id])
-    #     render json: cart, status: 200
-    # end
+    def show
+        cart = Cart.find_by(id: params[:id])
+        render json: cart.as_json(
+            include: [:item_orders]
+        ), status: 200
+    end
     
 end
