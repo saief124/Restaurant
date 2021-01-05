@@ -1,14 +1,19 @@
 import React from 'react'
-import MenuItem from './MenuItem'
-import LMenu from './LMenu'
+import MenuCol2 from './MenuCol2'
+import MenuCol1 from './MenuCol1'
+import CartContainer from './CartContainer'
+import { Container, Row, Col } from 'react-bootstrap'
+// import Columns from 'react-bulma-components/lib/components/columns'
 
-let menuUrl = "http://localhost:3001/menu_items"
+
+let menuUrl = "http://localhost:3000/menu_items"
 
 class Menu extends React.Component {
     constructor() { 
         super()
         this.state = {
-          menu: []
+          menu: [],
+          // myorders:[]
         }
       }
   
@@ -21,8 +26,12 @@ class Menu extends React.Component {
     render(){
         return (
         <div>
-            <h1> Menu Container</h1>
-            <LMenu menu={this.state.menu} />
+                <Container>
+                  <Row>
+                    <Col><MenuCol1 menu={this.state.menu}/></Col>
+                    <Col><MenuCol2 menu={this.state.menu}/></Col>
+                  </Row>
+                </Container>
         </div>
     )
 }}

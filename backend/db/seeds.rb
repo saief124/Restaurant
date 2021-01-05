@@ -30,8 +30,8 @@ Cart.destroy_all
 ItemOrder.destroy_all
 
 customers = [
-    {name: 'Bob', phone_number: '123-456-7890', address: 'San Antonio, Tx'},
-    {name: 'John', phone_number: '123-456-7890', address: 'Houston, Tx'}
+    {name: 'Bob', phone_number: '123-456-7890', address: 'San Antonio, Tx', password: '123'},
+    {name: 'John', phone_number: '123-456-7890', address: 'Houston, Tx', password: 'abc'}
 ]
 customers.each { |customer| Customer.create!(customer) }
 
@@ -52,39 +52,8 @@ carts.each { |cart| Cart.create!(cart) }
 
 item_orders = [
     {cart_id: Cart.first.id, menu_item_id: MenuItem.first.id},
+    {cart_id: Cart.first.id, menu_item_id: MenuItem.second.id},
     {cart_id: Cart.second.id, menu_item_id: MenuItem.second.id}
 ]
 item_orders.each { |item_order| ItemOrder.create!(item_order) }
 
-require 'json'
-# require 'pry'
-require 'uri'
-require 'net/http'
-require 'openssl'
-  def get_response_body
-    url = URI("https://documenu.p.rapidapi.com/restaurant/4072702673999819/menuitems?size=50&page=2")
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    request = Net::HTTP::Get.new(url)
-    request["x-rapidapi-host"] = 'documenu.p.rapidapi.com'
-    request["x-rapidapi-key"] = '4da63b4f99msh76bb9a4c479f730p1b819bjsn0230dd6a4478'
-    request["x-api-key"] = '1846c4434a257f87e0885e2e4d6c664b'
-    response = http.request(request)
-    response.read_body
-  end
-  def parse_json
-    a= get_response_body
-    parsed_string= JSON.parse(a)
-    mydata=parsed_string["data"]
-    @menu_item_name= mydata.map{|item|item["menu_item_name"]}
-    @menu_item_price=mydata.map{|item|item["menu_item_price"]} 
-    @menu_item_description=mydata.map{|item|item["menu_item_description"]}
-    @menu_item_category=mydata.map{|item|item["subsection"]} 
-
-    
-  end
-  def trysomething
-   parse_json
-       
-  end
