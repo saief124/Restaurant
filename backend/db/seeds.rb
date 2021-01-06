@@ -2,18 +2,18 @@ require 'json'
 require 'uri'
 require 'net/http'
 require 'openssl'
-  def get_response_body
-    url = URI("https://documenu.p.rapidapi.com/restaurant/4072702673999819/menuitems?size=50&page=2")
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    request = Net::HTTP::Get.new(url)
-    request["x-rapidapi-host"] = 'documenu.p.rapidapi.com'
-    request["x-rapidapi-key"] = '4da63b4f99msh76bb9a4c479f730p1b819bjsn0230dd6a4478'
-    request["x-api-key"] = '1846c4434a257f87e0885e2e4d6c664b'
-    response = http.request(request)
-    response.read_body
-  end
+def get_response_body
+  url = URI("https://documenu.p.rapidapi.com/restaurant/3027769097771823/menuitems?size=50&page=1")
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  request = Net::HTTP::Get.new(url)
+  request["x-rapidapi-host"] = 'documenu.p.rapidapi.com'
+  request["x-rapidapi-key"] = '4da63b4f99msh76bb9a4c479f730p1b819bjsn0230dd6a4478'
+  request["x-api-key"] = '1846c4434a257f87e0885e2e4d6c664b'
+  response = http.request(request)
+  response.read_body
+end
 
   def parse_json
     a= get_response_body
@@ -36,8 +36,9 @@ customers = [
 customers.each { |customer| Customer.create!(customer) }
 
 stores = [
-    {location: @mydata.first["address"]["formatted"], phone_number: @mydata.first["restaurant_phone"], hours: @mydata.first["restaurant_hours"], delivery_info: 'carryout only'},
+  {location: @mydata.first["address"]["formatted"], phone_number: @mydata.first["restaurant_phone"], hours: @mydata.first["restaurant_hours"], delivery_info: 'carryout only'}
 ]
+
 stores.each { |store| Store.create!(store) }
 
 @mydata.each do |item|

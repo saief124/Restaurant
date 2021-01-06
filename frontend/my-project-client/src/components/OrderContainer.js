@@ -23,7 +23,6 @@ class OrderContainer extends React.Component {
         .then(res => res.json())
         .then(menu => this.setState({menu}))  
 
-        this.createCart()
       }
         
     handleOrders=(item)=>{

@@ -1,13 +1,13 @@
 import React from 'react'
-import Cart from './Cart';
-import RMenu from './RMenu';
+import CartChild from './CartChild';
 
-const cartContainer=(props)=> {
 
-    let prices = props.myorders.map(food => parseFloat(food.price))
+export default function cartContainer(props) {
+
+    let prices = props.filteredItems.map(food => parseFloat(food.menu_item.price))
     let total = prices.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
     console.log(total)
-    let price = props.myorders.length;
+    let price = props.filteredItems.length;
     let button;
     let cost
     
@@ -18,16 +18,20 @@ const cartContainer=(props)=> {
       cost = <p> Total: ${total} </p>
 
     }
+
+    
+    const showTitle = props.filteredItems.length > 0
     return (
         
         <div>
+            <h1>{showTitle ? 'My Order' : 'No Items Added...' }</h1>
             {
-                props.myorders.map((order, index) =>
-                    <Cart
+                props.filteredItems.map((order, index) =>
+                    <CartChild
                         key={index}
                             myorder={order}
                                 removeOrder={props.removeOrder}
-                                    addOrder={props.addOrder}   
+                                      
                     />
                 )
             }
@@ -39,5 +43,3 @@ const cartContainer=(props)=> {
         </div>
     )
 }
-
-export default cartContainer;
