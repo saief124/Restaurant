@@ -1,11 +1,16 @@
 import React from 'react'
 
 export default function Cart(props) {
-    // console.log(props.myorder.name)
+    // console.log(props)
     return (
         <div>
-            {/* {props.myorder.name} {props.myorder.price}   {props.myorder.description}<br></br> */}
-           <h2>Cart</h2>
+            <br></br>
+            {props.myorder.name} -- {props.myorder.description? props.myorder.description: "No Description"} -- ${props.myorder.price}<br></br>
+            
+            <button onClick={()=>props.removeOrder(props.myorder)}>Delete</button>
+            
+        
+            <button onClick={()=>props.addOrder(props.myorder)}>Add</button>
         </div>
     )
 }
