@@ -4,8 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap'
 export default function MenuItem(props) {
 
     const style = {
+        fontFamily: "PT Sans",
         fontSize: 20,
-        color: "#DF2424",
+        color: "#54A5C4",
     } 
 
     return (
@@ -19,7 +20,7 @@ export default function MenuItem(props) {
                     <Col style={style} >${props.item.price}</Col> 
                   </Row>
                   <Row>
-                  <Col>{props.item.description}</Col>
+                  <Col fontFamily="PT Sans">{props.item.description}</Col>
                   </Row>
                   <Row></Row>
                 </Container>

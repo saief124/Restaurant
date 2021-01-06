@@ -26,7 +26,7 @@ function NavBar(props) {
         }else{
         return (
             <>
-            <Button variant="danger" onClick={handleShow}>
+            <Button variant="info" onClick={handleShow}>
                     Login 
             </Button>
                 <Modal show={show} onHide={handleClose}>
@@ -36,7 +36,7 @@ function NavBar(props) {
                         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                             <Row>
                                 <Col sm={3}>
-                                <Nav align= "center" variant="pills" className="flex-column">
+                                <Nav align= "center" variant="pills" className="flex-column" >
                                     <Nav.Item>
                                     <Nav.Link eventKey="first">  Login</Nav.Link>
                                     </Nav.Item>
@@ -70,8 +70,8 @@ function NavBar(props) {
                 <img
                     alt=""
                     src= {Logo}
-                    width="60"
-                    height="50"
+                    width="120"
+                    height="65"
                     className="d-inline-block align-top"
                  />
             </Navbar.Brand>

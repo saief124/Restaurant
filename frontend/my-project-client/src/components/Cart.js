@@ -1,16 +1,31 @@
 import React from 'react'
+let item_orderUrl = "http://localhost:3000/item_orders"
+class Cart extends React.Component {
+    state={
+        cart_items: []
+    }
 
-export default function Cart(props) {
-    // console.log(props)
+
+    componentDidMount(){
+        fetch(item_orderUrl)
+        .then(res=>res.json())
+        .then(cart_items=> this.setState({cart_items}))
+    }
+    
+    render(){
+        console.log(this.state.cart_items[0])
     return (
         <div>
-            <br></br>
-            {props.myorder.name} -- {props.myorder.description? props.myorder.description: "No Description"} -- ${props.myorder.price}<br></br>
-            
-            <button onClick={()=>props.removeOrder(props.myorder)}>Delete</button>
-            
-        
-            <button onClick={()=>props.addOrder(props.myorder)}>Add</button>
+            <h4>Cart number: {localStorage.getItem('cart_id')}</h4><br></br>
+            <h4>Item Name:{"this.state.cart_items[0]"}</h4><br></br>
+            <h4>Item Price:</h4><br></br>
+            <h4>Item description:</h4><br></br>
+            <h4>Order Total:</h4>
+           
+            <button onClick={()=>console.log("delete")}>Delete</button>
+            <button onClick={()=>console.log("clicked")}>Add</button>
         </div>
     )
+    }
 }
+export default Cart
