@@ -38,6 +38,7 @@ class Login extends Component {
         this.props.handleLogin()
         this.props.history.push('./')
       })
+      
     
   }
 
@@ -47,7 +48,7 @@ class Login extends Component {
           <h1>Login</h1>
           <input type="text" name="name" value={this.state.name} placeholder ="Name" onChange={this.handleChange}/><br></br>        
           <input type="password" name="password" value={this.state.password} placeholder= "password" onChange={this.handleChange}/><br></br>
-          <button>Submit</button>
+          <button >Submit</button>
           
       </form>
   )

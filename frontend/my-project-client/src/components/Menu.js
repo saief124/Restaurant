@@ -1,7 +1,7 @@
 import React from 'react'
 import LMenu from './LMenu'
-import CartContainer from './CartContainer'
-import { Row, Col } from 'react-bootstrap'
+// import CartContainer from './CartContainer'
+// import { Row, Col } from 'react-bootstrap'
 
 let menuUrl = "http://localhost:3000/menu_items"
 

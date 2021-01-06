@@ -11,6 +11,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 
+
 class App extends React.Component { 
     state={
       isLoggedIn: false
@@ -25,6 +26,7 @@ class App extends React.Component {
         this.setState({isLoggedIn: true})
       }
     }
+
     render(){
       
       return (

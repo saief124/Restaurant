@@ -23,6 +23,8 @@ class OrderContainer extends React.Component {
         })
         .then(res => res.json())
         .then(menu => this.setState({menu}))  
+
+        this.createCart()
       }
 
     createCart=()=>{
@@ -40,7 +42,7 @@ class OrderContainer extends React.Component {
             })
             .then(res=>res.json())
             .then(cart=> {
-            //    console.log(cart)
+               console.log(cart)
             localStorage.setItem('cart_id', cart.id)
         })
     }  
@@ -95,7 +97,7 @@ class OrderContainer extends React.Component {
     }
     
     addOrder = (item)=>{
-        
+
         const order_item={
             cart_id: localStorage.getItem('cart_id'),
             menu_item_id: item.id
