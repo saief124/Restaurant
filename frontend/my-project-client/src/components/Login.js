@@ -8,7 +8,7 @@ class Login extends Component {
       this.state={
           name:"",
           password:"",
-          errorMsg:""  
+          
       }
   }
 
@@ -39,9 +39,7 @@ class Login extends Component {
         this.props.handleLogin()
         this.props.history.push('./')
         }else{
-            this.setState({
-                errorMsg:token["msg"]
-            })
+         alert(token["msg"])
         }
       })
     
