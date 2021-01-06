@@ -38,6 +38,7 @@ customers.each { |customer| Customer.create!(customer) }
 stores = [
     {location: @mydata.first["address"]["formatted"], phone_number: @mydata.first["restaurant_phone"], hours: @mydata.first["restaurant_hours"], delivery_info: 'carryout only'}
 ]
+
 stores.each { |store| Store.create!(store) }
 
 @mydata.each do |item|
@@ -56,3 +57,5 @@ item_orders = [
     {cart_id: Cart.second.id, menu_item_id: MenuItem.second.id}
 ]
 item_orders.each { |item_order| ItemOrder.create!(item_order) }
+
+
