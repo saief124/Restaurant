@@ -3,7 +3,7 @@ require 'uri'
 require 'net/http'
 require 'openssl'
   def get_response_body
-    url = URI("https://documenu.p.rapidapi.com/restaurant/4072702673999819/menuitems?size=50&page=2")
+    url = URI("https://documenu.p.rapidapi.com/restaurant/3027769097771823/menuitems?size=50&page=1")
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -36,7 +36,7 @@ customers = [
 customers.each { |customer| Customer.create!(customer) }
 
 stores = [
-    {location: @mydata.first["address"]["formatted"], phone_number: @mydata.first["restaurant_phone"], hours: @mydata.first["restaurant_hours"], delivery_info: 'carryout only'},
+    {location: @mydata.first["address"]["formatted"], phone_number: @mydata.first["restaurant_phone"], hours: @mydata.first["restaurant_hours"], delivery_info: 'carryout only'}
 ]
 stores.each { |store| Store.create!(store) }
 

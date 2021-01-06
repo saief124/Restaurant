@@ -22,7 +22,7 @@ return (
 
 
         <div className="column is-6">
-            {/* <h3>RMenu</h3> */}
+            
         <h2> Breakfast </h2>
         
         <Columns> 

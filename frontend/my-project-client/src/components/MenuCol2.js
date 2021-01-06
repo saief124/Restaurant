@@ -3,32 +3,39 @@ import MenuItem from './MenuItem'
 import { Columns } from 'react-bulma-components'
 
 export default function MenuCol2(props) {
-    const breakfast = props.menu.filter(item => 
-        item.category !== "Appetizers" &&
-        item.category !== "Salads" && 
-        item.category !== "Bakery" && 
-        item.category !== "Breakfast Side Orders" &&
-        item.category !== "Juicy Fruits")
-    const appetizers = props.menu.filter(item => item.category === "Appetizers")
-    const bakery= props.menu.filter(item=> item.category === "Bakery")
-    const salads= props.menu.filter(item=>item.category === "Salads")
-    const breakfastsides= props.menu.filter(item=>
-        item.category === "Breakfast Side Orders" || 
-        item.category === "Juicy Fruits")
-    const juicyfruits= props.menu.filter(item=>item.category === "Juicy Fruits")
-    
+    const kmenu = props.menu.filter(item => 
+        item.category === "Kids Menu" )
+    const beverages= props.menu.filter(item=>
+            item.category === "Beverages" || 
+            item.category === "Coffee & Tea")
+            
+
     const style = {
-        fontFamily: "Wendy One",
-        backgroundColor: '#EBEB88'
+        fontFamily: "Russo One",
+        backgroundColor: '#F1F1E2',
+        color: "#A370A7"
     }
 
     return (
         <div>
-        <h2 style={style} > Breakfast </h2>
+        <h2 style={style} > K I D ' S    M E N U </h2>
         
         <Columns> 
             <Columns.Column> 
-                {breakfast.map(item => 
+                {kmenu.map(item => 
+                    <MenuItem 
+                    key={item.id} 
+                    item={item} 
+                    price={item.price}
+                    description={item.description}
+                    
+                />)}
+            </Columns.Column> 
+        </Columns>
+        <h2 style={style}> B E V E R A G E S</h2>
+        <Columns> 
+            <Columns.Column> 
+                {beverages.map(item => 
                     <MenuItem 
                     key={item.id} 
                     item={item} 
