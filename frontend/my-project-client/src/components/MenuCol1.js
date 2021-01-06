@@ -10,16 +10,15 @@ export default function MenuCol1(props) {
     const breakfastsides= props.menu.filter(item=>
         item.category === "Breakfast Side Orders" || 
         item.category === "Juicy Fruits")
-    const juicyfruits= props.menu.filter(item=>item.category === "Juicy Fruits")
-
+        
     const style = {
         fontFamily: "Wendy One",
         backgroundColor: '#EBEB88'
     }
 
     return (
-        <div>
-        <h2 style={style}> Appetizers </h2>
+        <div className="column is-6">        
+        <h2 style={style}> Appetizers</h2>
         <Columns> 
             <Columns.Column> 
                 {appetizers.map(item => 

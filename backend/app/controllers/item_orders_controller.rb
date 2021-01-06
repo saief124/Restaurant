@@ -1,12 +1,15 @@
 class ItemOrdersController < ApplicationController
+    before_action :authenticate!, only: [:create]
     def index
         item_orders = ItemOrder.all
-        render json: item_orders, status: 200
+        render json: item_orders.as_json(
+            include: [:menu_item]
+        ), status: 200
     end
 
     
     def create
-        byebug
+        # byebug
         item_order = ItemOrder.create(item_order_params)
         render json: item_order, status: 201
     end

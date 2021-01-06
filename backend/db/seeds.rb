@@ -45,8 +45,8 @@ stores.each { |store| Store.create!(store) }
 end
 
 carts = [
-    {customer_id: Customer.first.id},
-    {customer_id: Customer.second.id}
+    {customer_id: Customer.first.id, total:0.0},
+    {customer_id: Customer.second.id, total:0.0}
 ]
 carts.each { |cart| Cart.create!(cart) }
 
@@ -56,4 +56,3 @@ item_orders = [
     {cart_id: Cart.second.id, menu_item_id: MenuItem.second.id}
 ]
 item_orders.each { |item_order| ItemOrder.create!(item_order) }
-
