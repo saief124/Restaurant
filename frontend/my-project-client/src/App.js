@@ -11,7 +11,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 
-
+let cartUrl = "http://localhost:3000/carts"
 class App extends React.Component { 
     state={
       isLoggedIn: false
@@ -24,8 +24,29 @@ class App extends React.Component {
     handleLogin=()=>{
       if(localStorage.getItem('auth_key')){
         this.setState({isLoggedIn: true})
+        this.createCart()
       }
     }
+
+    createCart=()=>{
+      const newCart={
+          total:0.0
+      }
+
+      fetch(cartUrl,{
+          method: 'POST',
+          headers:{
+              'Content-Type': 'application/json',
+              'Auth-Key': localStorage.getItem('auth_key')
+          },
+          body: JSON.stringify(newCart)
+          })
+          .then(res=>res.json())
+          .then(cart=> {
+          //    console.log(cart)
+          localStorage.setItem('cart_id', cart.id)
+      })
+    } 
 
     render(){
       

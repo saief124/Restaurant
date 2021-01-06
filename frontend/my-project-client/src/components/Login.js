@@ -7,8 +7,8 @@ class Login extends Component {
       super()
       this.state={
           name:"",
-          password:""
-
+          password:"",
+          
       }
   }
 
@@ -34,9 +34,13 @@ class Login extends Component {
           body: JSON.stringify(newCustomer)
       }).then(res=>res.json())
       .then(token=> {
+        if (token["auth_key"]){
         localStorage.setItem('auth_key', token["auth_key"])
         this.props.handleLogin()
         this.props.history.push('./')
+        }else{
+         alert(token["msg"])
+        }
       })
       
     
@@ -48,8 +52,8 @@ class Login extends Component {
           <h1>Login</h1>
           <input type="text" name="name" value={this.state.name} placeholder ="Name" onChange={this.handleChange}/><br></br>        
           <input type="password" name="password" value={this.state.password} placeholder= "password" onChange={this.handleChange}/><br></br>
-          <button >Submit</button>
-          
+          <button>Submit</button>
+          <h4>{this.state.errorMsg}</h4>
       </form>
   )
   }
