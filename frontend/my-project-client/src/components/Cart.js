@@ -15,8 +15,6 @@ class Cart extends React.Component {
         .then(res=>res.json())
         .then(cart_items=> this.setState({cart_items}))
     }
-    
-    
     removeOrder = (item) => {
         
         fetch(`http://localhost:3000/item_orders/${item.id}`,{
