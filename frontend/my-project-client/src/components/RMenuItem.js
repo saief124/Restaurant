@@ -6,7 +6,7 @@ export default function RMenuItem(props) {
         <div>
             <br></br>
             <p> {props.item.name} --- {props.item.description? props.item.description: "No Description"} --- ${props.item.price}</p>
-            <button onClick={()=>props.handleOrders(props.item)}>Add Item+</button>
+            <button onClick={()=>props.handleOrders(props.item)}>Add To Cart</button>
       </div>
     )
 }

@@ -9,6 +9,7 @@ import OrderContainer from './components/OrderContainer'
 import Cart from './components/Cart'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Checkout from './components/Checkout'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 
 let cartUrl = "http://localhost:3000/carts"
@@ -56,6 +57,7 @@ class App extends React.Component {
             <NavBar handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn} />
             <Route exact path ="/" component= {LandingPage} />
             <Route exact path ="/menu" component={Menu} />
+            <Route exact path ="/checkout" component={Checkout} />
             {/* //   return <Menu menu={this.state.menu} addToCart={this.addToCart} />
             // }}/> */}
             <Route exact path ="/about" component= {About} />
