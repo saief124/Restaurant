@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RMenu from './RMenu'
 import CartContainer from './CartContainer'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button, ButtonGroup, DropdownButton, Dropdown, Nav } from 'react-bootstrap'
+import CartSideBtn from './CartSideBtn'
+import LogoutSideBtn from './LogoutSideBtn'
 
 let menuUrl = "http://localhost:3000/menu_items"
 let item_orderUrl = "http://localhost:3000/item_orders"
@@ -52,12 +54,16 @@ class OrderContainer extends React.Component {
 
         <div>
             <Row>
-              <Col xs={12} md={8}>
-              <h1> Order Container</h1>
-              <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
-              </Col>
-          
+                <Col> <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/> </Col>
+
+                <Col> 
+                    <Nav defaultActiveKey="/home" className="flex-column" align="right">
+                        <Nav.Item> <CartSideBtn /> </Nav.Item> <br></br>
+                        <Nav.Item >  </Nav.Item>
+                    </Nav>
+                </Col>
             </Row>
+
         </div>
     )
     }

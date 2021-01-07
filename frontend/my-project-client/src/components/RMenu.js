@@ -10,7 +10,7 @@ export default function RMenu(props) {
         item.category !== "Bakery" && 
         item.category !== "Breakfast Side Orders" &&
         item.category !== "Juicy Fruits")
-    const appetizers = props.menu.filter(item => item.category === "Appetizers")
+    const starters = props.menu.filter(item => item.category === "Starters")
     const bakery= props.menu.filter(item=> item.category === "Bakery")
     const salads= props.menu.filter(item=>item.category === "Salads")
     const breakfastsides= props.menu.filter(item=>item.category === "Breakfast Side Orders")
@@ -50,10 +50,10 @@ return (
                 />)}
             </Columns.Column> 
         </Columns>
-        <h2> Appetizers </h2>
+        <h2> Starters </h2>
         <Columns> 
             <Columns.Column> 
-                {appetizers.map(item => 
+                {starters.map(item => 
                     <RMenuItem 
                     key={item.id} 
                     item={item} 

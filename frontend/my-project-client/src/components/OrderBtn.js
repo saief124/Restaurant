@@ -8,7 +8,7 @@ function OrderBtn() {
   
     return (
         <div>
-            <Button variant="danger" href="/order">
+            <Button variant="info" href="/order">
               Order Online
             </Button>        
     </div>

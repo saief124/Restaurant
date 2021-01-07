@@ -10,6 +10,14 @@ export default function cartContainer(props) {
     let price = props.filteredItems.length;
     let button;
     let cost
+    const style = {
+        fontFamily: "Russo One",
+        fontSize: 35,
+        backgroundColor: '#F1F1E2',
+        justifyContent: 'center',
+        color: "#A370A7"
+
+    }
     
 
     if (price > 0) {
@@ -24,7 +32,7 @@ export default function cartContainer(props) {
     return (
         
         <div>
-            <h1>{showTitle ? 'My Order' : 'No Items Added...' }</h1>
+            <h1 style={style} >{showTitle ? 'My Order' : 'No Items Added...' }</h1>
             {
                 props.filteredItems.map((order, index) =>
                     <CartChild

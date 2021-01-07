@@ -1,5 +1,5 @@
 import React from 'react'
-import {Carousel, Container, Row, Col } from 'react-bootstrap'
+import {Carousel, Container, Row, Col, Navbar, Nav, } from 'react-bootstrap'
 
 
 
@@ -47,12 +47,11 @@ class LandingPage extends React.Component {
                     />
                 </Carousel.Item>
             </Carousel> 
-            <Row style={row} > 
+            {/* <Row style={row} > 
                 <Col style={right}> . </Col>
                 <Col> hello </Col>
-            </Row>
+            </Row> */}
         </Container>
-
 
     )}
 }

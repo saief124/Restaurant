@@ -45,10 +45,6 @@ class Cart extends React.Component {
         
     }
     
-    
-     
-     
-    
     render(){
         console.log(this.state.cart_items.filter(item=> item.cart_id == localStorage.getItem('cart_id')))
         console.log(localStorage.getItem('cart_id'))
