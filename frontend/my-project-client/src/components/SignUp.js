@@ -25,6 +25,7 @@ class SignUp extends Component {
     }
 
     handleSubmit=(e)=>{
+        
         e.preventDefault()
         const newCustomer= {
             customer:{

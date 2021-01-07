@@ -7,7 +7,9 @@ function Contact() {
         fontFamily: "Russo One",
         fontSize: 35,
         backgroundColor: '#F1F1E2',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        color: "#A370A7"
+
     }
 
     const sub = {
@@ -21,16 +23,19 @@ function Contact() {
             
             <Container> 
                 <Row style={style}> L O C A T I O N </Row> <br></br>
-                <Row style={sub}> Just a short walk from NYU, Silver Spurs on Houston St. & LaGuardia Pl. in New York is the perfect place to enjoy a colossal burger, brunch on the weekends, or drinks with your friends. </Row> <br></br>
+                <Row style={sub}> TEXT TEXT TEXT</Row> <br></br>
                 <Row style={style}> C O N T A C T </Row> <br></br>
                 <Row style={sub}> Text text text</Row> <br></br>
                 <Row style={style}> A B O U T </Row><br></br>
-                <Row style={sub}> Tired of the same old diners in Manhattan? Look no further than Silver Spurs for a truly delicious and unique diner experience. Our extensive menu is sure to please anyone. From our appeteasers to our famous colossal burgers, sandwiches, wraps, paninis and desserts, Silver Spurs is good eating at very low prices.
-                    Visit this neighborhood favorite for breakfast, lunch, or dinner, or order in on a rainy or lazy day! We offer brunch on Saturday and Sunday and have a full bar. At Silver Spurs, everything is made fresh to order and all of our meat is cut fresh at our butcher shop.
-                    Silver Spurs is also available to cater your next party or corporate event. Please view our catering menu and place an order online.
-                    Since opening in 1979, Silver Spurs has set out to be a unique diner in Manhattan that offers fresh food, good drinks and delicious eats. Near NYU, students, professionals, police officers and local neighborhood people come to Silver Spurs for our burgers, paninis, salads, sandwiches and brunch.
-                    Some of the local favorite dishes include: Salada Lailai, The Silver Spurs Burger, Mickey Maffosa Sandwich, Fryin’ Friers, El Cubano Ruben Panini, and the Ms. Annie Oakley Sandwich. <br></br><br></br>
-                    Created by Saief, Jake, & Gabbi </Row>
+                <Row style={sub}> 
+                The Magnolia Cafe started in 1979 on Lake Austin Boulevard, and expanded to South Congress in 1988. 
+                Through the decades, we have had the privilege of seeing multiple generations of our community from near and far come through our doors and create memories in our booths. 
+                We’ve gotten older, and the city has grown too. We are honored to still be standing today at our South Congress location. 
+                Businesses like ours — small, family owned, community-powered — will not be able to survive the challenges of the Covid-19 era without your support. We are grateful for the ways you bring our food and energy into your lives and routines. It’s nice to see you, and thank you for coming back!
+                We are currently open every day from 8 am - 10 pm with many options to enjoy our food. Contact-free curbside pickup is available with online ordering, as is Favor delivery, and we have dine-in service every day of the week with limited hours on our beautiful garden patio and air conditioned dining room. <br/> <br/>
+                
+                Hope to see you soon. <br/> <br/>
+                </Row>
             </Container>
         </div>
     )

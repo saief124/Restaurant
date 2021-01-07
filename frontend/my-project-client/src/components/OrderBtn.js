@@ -3,14 +3,18 @@ import {Button} from 'react-bootstrap'
 
 
 
+
 function OrderBtn() {
+  
     return (
         <div>
-            <Button variant="danger" href="/order">
-              Order Online
+            <Button variant="info" href="/order">
+              Order
             </Button>        
     </div>
     )
 }
 
 export default OrderBtn;
+
+

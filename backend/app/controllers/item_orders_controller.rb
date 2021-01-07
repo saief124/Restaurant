@@ -3,7 +3,7 @@ class ItemOrdersController < ApplicationController
     def index
         item_orders = ItemOrder.all
         render json: item_orders.as_json(
-            include: [:menu_item]
+            include: {menu_item: {only: [:name, :price]}}
         ), status: 200
     end
 
@@ -22,12 +22,12 @@ class ItemOrdersController < ApplicationController
     #     render json: @item_order, status: 200
     # end
     
-    # def destroy
-    #     @item_order = ItemOrder.find(params[:id])
-    #     item_orderId = @item_order.id
-    #     @item_order.destroy
-    #     render json: {message:"Item Order deleted", item_orderId:item_orderId}
-    # end
+    def destroy
+        @item_order = ItemOrder.find(params[:id])
+        item_orderId = @item_order.id
+        @item_order.destroy
+        render json: {message:"Item Order deleted", item_orderId:item_orderId}
+    end
     
     # def show
     #     @item_order = ItemOrder.find(params[:id])

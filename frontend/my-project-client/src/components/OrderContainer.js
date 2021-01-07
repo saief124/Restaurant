@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RMenu from './RMenu'
-import CartContainer from './CartContainer'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Nav, Container, Button, DropdownButton, Dropdown } from 'react-bootstrap'
+import CartSideBtn from './CartSideBtn'
 
 let menuUrl = "http://localhost:3000/menu_items"
 let item_orderUrl = "http://localhost:3000/item_orders"
@@ -9,7 +9,8 @@ let item_orderUrl = "http://localhost:3000/item_orders"
 class OrderContainer extends React.Component {
     state={
         menu: [],
-        myorders:[]
+        myorders:[],
+        filter: 'All'
     }
 
     componentDidMount() {
@@ -22,6 +23,7 @@ class OrderContainer extends React.Component {
         })
         .then(res => res.json())
         .then(menu => this.setState({menu}))  
+
       }
         
     handleOrders=(item)=>{
@@ -44,19 +46,29 @@ class OrderContainer extends React.Component {
                         this.setState({myorders: newOrder})
                     })
     }
-        
+
     render(){
         
     return (
 
         <div>
-            <Row>
-              <Col xs={12} md={8}>
-              <h1> Order Container</h1>
-              <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/>
-              </Col>
-          
+            <Container fluid> 
+            <br/>
+            <Row> 
+                <Col sm={11}> 
+                </Col>
+                <Col> 
+                    <Nav defaultActiveKey="/home" >
+                        <Nav.Item align="right"> <CartSideBtn /> </Nav.Item> <br/><br/>
+                    </Nav> 
+                </Col>
+            </Row> 
+
+            <Row> 
+                <Col> <RMenu menu={this.state.menu} handleOrders={this.handleOrders}/> </Col>
             </Row>
+            </Container>
+
         </div>
     )
     }
