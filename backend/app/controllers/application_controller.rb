@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
         token= request.headers['Auth-Key']
         
         begin
-            customer_id=JWT.decode(token, 'secretkey')[0]["customer_id"]
+            customer_id=JWT.decode(token, ENV['SUPER_SECRET_KEY'])[0]["customer_id"]
             @customer= Customer.find_by(id: customer_id)
         rescue
             nil
