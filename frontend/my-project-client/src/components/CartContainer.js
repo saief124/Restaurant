@@ -3,32 +3,45 @@ import CartChild from './CartChild';
 import { Container, Row, Col, Button } from 'react-bootstrap'
 
 
+
 export default function cartContainer(props) {
 
     let prices = props.filteredItems.map(food => parseFloat(food.menu_item.price))
-    let total = prices.reduce((previousValue, currentValue) => previousValue + currentValue, 0).toFixed(2)
-    console.log(total)
-    let price = props.filteredItems.length;
-    let button;
-    let cost
+    let totalBeforeTaxes = prices.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+    
+    let price = props.filteredItems.length
+    let button
+    let subtotal
+    let taxes = totalBeforeTaxes * .082
+    let totalAfterTaxes = totalBeforeTaxes + taxes
+    let tax
+    let total
     const style = {
         fontFamily: "Russo One",
         fontSize: 35,
         backgroundColor: '#F1F1E2',
         justifyContent: 'center',
         color: "#A370A7"
+    }
 
+    const subStyle = {
+        fontsize: 20
     }
 
     const totalStyle = {
         fontSize: 25
     }
 
+         button = <button onClick={() =>  window.location.href='checkout'}>Checkout</button>
+         subtotal = <p style={subStyle}>  Subtotal: ${totalBeforeTaxes.toFixed(2)} </p>
+         tax = <p style={subStyle}>Taxes: ${taxes.toFixed(2)}</p>
+         total = <p style={totalStyle}> Total: ${totalAfterTaxes.toFixed(2)}</p>
+
     if (price > 0) {
       button = <Button variant="info"> Checkout</Button>
-      cost = <p style={totalStyle}> Total: ${total} </p>
     }
-
+    
+    localStorage.setItem('total',`${totalAfterTaxes}`)
     const showTitle = props.filteredItems.length > 0
 
     return (
@@ -38,13 +51,20 @@ export default function cartContainer(props) {
                     <CartChild
                         key={index}
                         myorder={order}
-                        removeOrder={props.removeOrder} />)
+                        removeOrder={props.removeOrder} 
+                        addItem={props.addItem} />)
             }
             <br></br>
 
             <Container> 
                 <Row>
-                    <Col align="center"> {cost}</Col>
+                    <Col align="right"> {subtotal}</Col>
+                </Row> 
+                <Row>
+                    <Col align="right"> {tax}</Col>
+                </Row> 
+                <Row>
+                    <Col align="center"> {total}</Col>
                 </Row> 
                 <Row> 
                     <Col align="center"> {button}</Col>
