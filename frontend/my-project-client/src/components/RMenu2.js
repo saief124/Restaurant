@@ -1,8 +1,8 @@
 import React from 'react'
-import MenuItem from './MenuItem'
+import RMenuItem from './RMenuItem'
 import { Columns } from 'react-bulma-components'
 
-export default function MenuCol2(props) {
+export default function RMenu2(props) {
     const kmenu = props.menu.filter(item => 
         item.category === "Kids Menu" )
     const beverages= props.menu.filter(item=>
@@ -16,18 +16,18 @@ export default function MenuCol2(props) {
         color: "#A370A7"
     }
 
-    return (
+return (
         <div>
         <h2 style={style} > K I D ' S    M E N U </h2>
-        
         <Columns> 
             <Columns.Column> 
                 {kmenu.map(item => 
-                    <MenuItem 
+                    <RMenuItem 
                     key={item.id} 
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>
@@ -35,11 +35,12 @@ export default function MenuCol2(props) {
         <Columns> 
             <Columns.Column> 
                 {beverages.map(item => 
-                    <MenuItem 
+                    <RMenuItem 
                     key={item.id} 
                     item={item} 
                     price={item.price}
                     description={item.description}
+                    handleOrders={props.handleOrders}
                 />)}
             </Columns.Column> 
         </Columns>

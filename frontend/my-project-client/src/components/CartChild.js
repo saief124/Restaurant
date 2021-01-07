@@ -1,13 +1,27 @@
 import React from 'react'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 export default function CartChild(props) {
-    console.log(props)
+    const style = {
+        fontSize: 20
+    }     
+    
     return (
         <div>
             <br></br>
-            {props.myorder.menu_item.name}  -- ${props.myorder.menu_item.price}<br></br>
-            {/* {props.myorder.description? props.myorder.description: "No Description"} */}
-            <button onClick={()=>props.removeOrder(props.myorder)}>Delete</button>
+            <Container fluid>
+                  <Row>
+                   <Col sm={8} style={style} > 
+                    {props.myorder.menu_item.name}
+                    </Col> 
+                    <Col style={style} >${props.myorder.menu_item.price}</Col> 
+                    <Col><Button size="sm" variant="danger" onClick={()=>props.removeOrder(props.myorder)}>X</Button></Col>
+                  </Row>
+                  <Row>
+                  </Row>
+                  <Row></Row>
+                </Container>
+
             
         </div>
     )

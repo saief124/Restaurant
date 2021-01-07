@@ -12,18 +12,6 @@ class Cart extends React.Component {
         .then(res=>res.json())
         .then(cart_items=> this.setState({cart_items}))
     }
-    // removeOrder = (item) => {
-    //     console.log(item)
-        // let array = this.state.cart_items;
-        
-        // let i = array.indexOf(item);
-        //     if (i > -1) {
-        //         array.splice(i, 1);
-        //     }
-        // this.setState({
-        //     cart_items: array
-        // })
-    // }
     removeOrder = (item) => {
         
         fetch(`http://localhost:3000/item_orders/${item.id}`,{
