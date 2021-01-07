@@ -1,5 +1,8 @@
 import React from 'react'
 import CartContainer from './CartContainer'
+import StripeCheckout from 'react-stripe-checkout'
+// require('dotenv').config()
+
 let item_orderUrl = "http://localhost:3000/item_orders"
 class Cart extends React.Component {
     state={
@@ -45,18 +48,25 @@ class Cart extends React.Component {
         
     }
     
+    handleToken=(token, addresses)=>{
+        console.log({token, addresses})
+    }
     
      
      
     
     render(){
-        console.log(this.state.cart_items.filter(item=> item.cart_id == localStorage.getItem('cart_id')))
-        console.log(localStorage.getItem('cart_id'))
+        // console.log(this.state.cart_items.filter(item=> item.cart_id == localStorage.getItem('cart_id')))
+        // console.log(localStorage.getItem('cart_id'))
         const filteredItems = this.state.cart_items.filter(item=> item.cart_id == localStorage.getItem('cart_id'))
-        console.log(filteredItems)
+        // console.log(filteredItems)
     return (
         <div>
             <CartContainer filteredItems={filteredItems} removeOrder={this.removeOrder} > </CartContainer>
+            <StripeCheckout
+            // stripeKey="PUBLISHED_KEY"
+             stripeKey="pk_test_51I73tHCyoa28ENjW9vHpv8N25swR1hqOhiyjO8oMAmRpDLJSiClE8B47JpI7LTu3l9hvmLHIKSZEEOLE3sk9S5UI00odqmOjAC"
+            token={this.handleToken} />
         </div>
     )
     }
