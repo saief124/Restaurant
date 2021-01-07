@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Checkout(props) {
-    console.log(props.filteredItems)
+export default function Checkout() {
+    
     return (
         <div>
-            <h1>hello</h1>
+            <h1>hello world</h1>
             
         </div>
     )

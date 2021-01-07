@@ -26,7 +26,7 @@ export default function cartContainer(props) {
 
     }
     
-    
+    localStorage.setItem('total',`${totalAfterTaxes}`)
     const showTitle = props.filteredItems.length > 0
     return (
         
@@ -38,6 +38,7 @@ export default function cartContainer(props) {
                         key={index}
                             myorder={order}
                                 removeOrder={props.removeOrder}
+                                    addItem={props.addItem}
                                       
                     />
                 )
