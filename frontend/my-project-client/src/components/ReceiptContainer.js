@@ -34,9 +34,6 @@ export default function ReceiptContainer(props) {
     tax = <p style={subStyle}>${taxes.toFixed(2)}</p>
     total = <p style={totalStyle}> ${totalAfterTaxes.toFixed(2)}</p>
 
-    if (price > 0) {
-      button = <Button variant="info" onClick={() =>  window.location.href='checkout'}> Pay at Restaurant</Button>
-    }
     
     localStorage.setItem('total',`${totalAfterTaxes}`)
     const showTitle = props.filteredItems.length > 0
