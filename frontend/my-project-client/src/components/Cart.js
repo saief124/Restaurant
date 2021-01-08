@@ -50,33 +50,32 @@ class Cart extends React.Component {
             },
             body: JSON.stringify(order_item)
             })
-                    // .then(res=>res.json())
-                    // .then(order=> { 
-                    //     const newOrder=[...this.state.cart_items, order]
-                    //     this.setState({cart_items: newOrder})
-                    //     this.setState({new_items: order})
-                    // })
+                    .then(res=>res.json())
+                    .then(order=> { console.log(order)
+                        // const newOrder=[...this.state.cart_items, order]
+                        // this.setState({cart_items: newOrder})
+                        // this.setState({new_items: order})
+                    })
 
                     // fetch(item_orderUrl)
                     // .then(res=>res.json())
                     // .then(cart_items=> this.setState({cart_items}))
-
-                    
-                    window.location.reload()
     }
     
-     
+     componentDidUpdate(prevProps, prevState){
+         if (prevState.cart_items !== this.state.cart_items){
+            fetch(item_orderUrl)
+                    .then(res=>res.json())
+                    .then(cart_items=> this.setState({cart_items}))
+         }
+
+     }
+
     
     render(){
-        // console.log(this.state.cart_items.filter(item=> item.cart_id == localStorage.getItem('cart_id')))
-        // console.log(localStorage.getItem('cart_id'))
+        
         let filteredItems = this.state.cart_items.filter(item=> item.cart_id == localStorage.getItem('cart_id'))
 
-        // let secondItems = this.state.new_items
-        // let firstItems = this.state.cart_items
-        // let thirdItems = firstItems.concat(secondItems)
-        // let filteredItems = thirdItems.filter(item=> item.cart_id == localStorage.getItem('cart_id'))
-        // console.log(filteredItems)
     return (
         <div>
             <CartContainer filteredItems={filteredItems} removeOrder={this.removeOrder} addItem={this.addItem} > </CartContainer>
