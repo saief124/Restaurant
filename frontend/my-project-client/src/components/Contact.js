@@ -28,7 +28,7 @@ function Contact() {
         <div>
             <Container> 
                 <Row style={style}> L O C A T I O N </Row> <br></br>
-                <Map location={location} zoomLevel={17}/>
+                <Map location={location} zoomLevel={18}/>
                 <Row style={sub}> Just a short walk from NYU, Silver Spurs on Houston St. & LaGuardia Pl. in New York is the perfect place to enjoy a colossal burger, brunch on the weekends, or drinks with your friends. </Row> <br></br>
                 <Row style={style}> C O N T A C T </Row> <br></br>
                 <Row style={sub}> Text text text</Row> <br></br>
