@@ -78,7 +78,7 @@ class Cart extends React.Component {
         const filteredItems = this.state.cart_items.filter(item=> item.cart_id == localStorage.getItem('cart_id'))
     return (
         <div>
-            <CartContainer filteredItems={filteredItems} removeOrder={this.removeOrder} > </CartContainer>
+            <CartContainer filteredItems={filteredItems} removeOrder={this.removeOrder} addItem={this.addItem}> </CartContainer>
          
         </div>
     )

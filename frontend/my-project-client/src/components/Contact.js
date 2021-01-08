@@ -27,11 +27,6 @@ function Contact() {
     return (
         <div>
             <Container> 
-                <Row style={style}> L O C A T I O N </Row> <br></br>
-                <Map location={location} zoomLevel={17}/>
-                <Row style={sub}> Just a short walk from NYU, Silver Spurs on Houston St. & LaGuardia Pl. in New York is the perfect place to enjoy a colossal burger, brunch on the weekends, or drinks with your friends. </Row> <br></br>
-                <Row style={style}> C O N T A C T </Row> <br></br>
-                <Row style={sub}> Text text text</Row> <br></br>
                 <Row style={style}> A B O U T </Row><br></br>
                 <Row style={sub}> 
                 The Magnolia Cafe started in 1979 on Lake Austin Boulevard, and expanded to South Congress in 1988. 
@@ -42,6 +37,11 @@ function Contact() {
                 
                 Hope to see you soon. <br/> <br/>
                 </Row>
+                <Row style={style}> L O C A T I O N </Row> <br></br>
+                <Map location={location} zoomLevel={17}/> 
+                {/* <Row style={style}> C O N T A C T </Row> <br></br>
+                <Row style={sub}> Text text text</Row> <br></br> */}
+
             </Container>
         </div>
     )
