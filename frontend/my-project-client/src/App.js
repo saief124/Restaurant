@@ -80,6 +80,8 @@ class App extends React.Component {
               this.setState({isLoggedIn: false})
               return <Redirect to="/"/>
             }}/>
+            <Route exact path ="/checkout" component= {Checkout} />
+
             <FooterBar> </FooterBar>
           </Router>
         </div>

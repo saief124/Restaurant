@@ -2,8 +2,6 @@ import React from 'react'
 import CartChild from './CartChild';
 import { Container, Row, Col, Button } from 'react-bootstrap'
 
-
-
 export default function cartContainer(props) {
 
     let prices = props.filteredItems.map(food => parseFloat(food.menu_item.price))
@@ -32,13 +30,12 @@ export default function cartContainer(props) {
         fontSize: 25
     }
 
-        //  button = <button onClick={() =>  alert("Your order has been placed")window.location.href='checkout'}>Checkout</button>
-         subtotal = <p style={subStyle}>  Subtotal: ${totalBeforeTaxes.toFixed(2)} </p>
-         tax = <p style={subStyle}>Taxes: ${taxes.toFixed(2)}</p>
-         total = <p style={totalStyle}> Total: ${totalAfterTaxes.toFixed(2)}</p>
+    subtotal = <p style={subStyle}>  Subtotal: ${totalBeforeTaxes.toFixed(2)} </p>
+    tax = <p style={subStyle}>Taxes: ${taxes.toFixed(2)}</p>
+    total = <p style={totalStyle}> Total: ${totalAfterTaxes.toFixed(2)}</p>
 
     if (price > 0) {
-      button = <Button onClick={() =>  alert("Your order has been placed")} variant="info"> Checkout</Button>
+      button = <Button variant="info" onClick={() =>  alert("Your order has been placed")}> Pay at Restaurant</Button>
     }
     
     localStorage.setItem('total',`${totalAfterTaxes}`)
@@ -52,7 +49,7 @@ export default function cartContainer(props) {
                         key={index}
                         myorder={order}
                         removeOrder={props.removeOrder} 
-                        addItem={props.addItem} />)
+                         />)
             }
             <br></br>
 

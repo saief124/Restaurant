@@ -8,7 +8,7 @@ import { AiFillPhone } from 'react-icons/ai';
 export default function FooterBar() {
     return (
         <div>
-            <Navbar bg="light" expand="lg" sticky="top" >
+            <Navbar bg="light" expand="lg">
                 <Navbar.Text> 
                 <Row> <AiFillPhone /> (512) 445-0000  </Row> 
                 <Row> <MdLocationOn /> 1920 S. Congress Austin, TX 78704 </Row>
