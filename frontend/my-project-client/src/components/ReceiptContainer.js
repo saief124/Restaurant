@@ -1,8 +1,8 @@
 import React from 'react'
-import CartChild from './CartChild';
+import ReceiptChild from './ReceiptChild';
 import { Container, Row, Col, Button } from 'react-bootstrap'
 
-export default function cartContainer(props) {
+export default function ReceiptContainer(props) {
 
     let prices = props.filteredItems.map(food => parseFloat(food.menu_item.price))
     let totalBeforeTaxes = prices.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
@@ -23,16 +23,16 @@ export default function cartContainer(props) {
     }
 
     const subStyle = {
-        fontsize: 20
+        fontsize: 10
     }
 
     const totalStyle = {
         fontSize: 25
     }
 
-    subtotal = <p style={subStyle}>  Subtotal: ${totalBeforeTaxes.toFixed(2)} </p>
-    tax = <p style={subStyle}>Taxes: ${taxes.toFixed(2)}</p>
-    total = <p style={totalStyle}> Total: ${totalAfterTaxes.toFixed(2)}</p>
+    subtotal = <p style={subStyle}>  ${totalBeforeTaxes.toFixed(2)} </p>
+    tax = <p style={subStyle}>${taxes.toFixed(2)}</p>
+    total = <p style={totalStyle}> ${totalAfterTaxes.toFixed(2)}</p>
 
     if (price > 0) {
       button = <Button variant="info" onClick={() =>  window.location.href='checkout'}> Checkout</Button>
@@ -43,28 +43,27 @@ export default function cartContainer(props) {
 
     return (
         <div>
-            <h1 style={style} >{showTitle ? 'My Order' : 'No Items Added...' }</h1>
             { props.filteredItems.map((order, index) =>
-                    <CartChild
+                    <ReceiptChild
                         key={index}
-                        myorder={order}
-                        removeOrder={props.removeOrder} 
-                        addItem={props.addItem} />)
+                        myorder={order} />)
             }
             <br></br>
 
             <Container> 
                 <Row>
-                    <Col align="right"> {subtotal}</Col>
+                    <Col sm={9}> Subtotal: </Col>
+                    <Col> {subtotal}</Col>
                 </Row> 
                 <Row>
-                    <Col align="right"> {tax}</Col>
+                    <Col sm={9}> Taxes: </Col>
+                    <Col> {tax}</Col>
                 </Row> 
                 <Row>
-                    <Col align="center"> {total}</Col>
+                    <Col sm={9}> Total: </Col>
+                    <Col> {total}</Col>
                 </Row> 
                 <Row> 
-                    <Col align="center"> {button}</Col>
                 </Row>
             </Container>
           

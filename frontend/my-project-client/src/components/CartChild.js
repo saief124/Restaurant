@@ -13,7 +13,7 @@ export default function CartChild(props) {
             <Container fluid>
                   <Row>
                   <Col><Button size="sm" onClick={() => props.addItem(props.myorder)}>+</Button></Col>
-                   <Col sm={7} style={style} > 
+                   <Col sm={6} style={style} > 
                     {props.myorder.menu_item.name}
                     </Col> 
                     <Col style={style} >${props.myorder.menu_item.price}</Col> 

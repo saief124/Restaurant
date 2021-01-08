@@ -21,8 +21,8 @@ function Contact() {
     }
     const location = {
         address: '1920 S Congress Ave, Austin, TX 78704',
-        lat: 30.30283476857588, 
-        lng:-97.75662584000072,
+        lat: 30.244480, 
+        lng: -97.751938,
       }
 
     return (
