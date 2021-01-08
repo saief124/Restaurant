@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 
+
 export default function CartChild(props) {
     const style = {
         fontSize: 20
@@ -11,7 +12,8 @@ export default function CartChild(props) {
             <br></br>
             <Container fluid>
                   <Row>
-                   <Col sm={8} style={style} > 
+                  <Col><Button size="sm" onClick={() => props.addItem(props.myorder)}>+</Button></Col>
+                   <Col sm={7} style={style} > 
                     {props.myorder.menu_item.name}
                     </Col> 
                     <Col style={style} >${props.myorder.menu_item.price}</Col> 

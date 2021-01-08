@@ -8,6 +8,7 @@ import OrderContainer from './components/OrderContainer'
 import Cart from './components/Cart'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Checkout from './components/Checkout'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 import FooterBar from './components/FooterBar'
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import Map from './map/Map'
 
 function Contact() {
 
@@ -14,18 +15,20 @@ function Contact() {
 
     const sub = {
         textAlign: "center",
-        fontFamily: "PT Sans"
+        fontFamily: "PT Sans",
+        fontSize: 20
     }
+    const location = {
+        address: '1920 S Congress Ave, Austin, TX 78704',
+        lat: 30.30283476857588, 
+        lng:-97.75662584000072,
+      }
 
 
     return (
         <div>
             
             <Container> 
-                <Row style={style}> L O C A T I O N </Row> <br></br>
-                <Row style={sub}> TEXT TEXT TEXT</Row> <br></br>
-                <Row style={style}> C O N T A C T </Row> <br></br>
-                <Row style={sub}> Text text text</Row> <br></br>
                 <Row style={style}> A B O U T </Row><br></br>
                 <Row style={sub}> 
                 The Magnolia Cafe started in 1979 on Lake Austin Boulevard, and expanded to South Congress in 1988. 
@@ -36,6 +39,11 @@ function Contact() {
                 
                 Hope to see you soon. <br/> <br/>
                 </Row>
+                <Row style={style}> L O C A T I O N </Row> <br></br>
+                <Map location={location} zoomLevel={17}/> 
+                {/* <Row style={style}> C O N T A C T </Row> <br></br>
+                <Row style={sub}> Text text text</Row> <br></br> */}
+
             </Container>
         </div>
     )
