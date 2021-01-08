@@ -1,10 +1,11 @@
 import React, { useState }  from 'react'
 import {Navbar, Nav, NavDropdown, Modal, Button, Tabs, Tab, Row, Col, Container} from 'react-bootstrap'
-import OrderContainer from './OrderBtn'
+import OrderBtn from './OrderBtn'
 import Login from './Login'
 import SignUp from './SignUp'
 import Logo from '../images/Logo.svg'
 import LoginModal from "react-login-modal";
+import LogoutSideBtn from './LogoutSideBtn'
 
 
 function NavBar(props) {
@@ -17,9 +18,10 @@ function NavBar(props) {
         if (isLoggedIn){
             return (
                 <>
-                <Nav.Link href="/logout">Logout</Nav.Link>
-                <Nav.Link href="/cart">Cart</Nav.Link>
-                <OrderContainer />
+                {/* <Nav.Link href="/logout">Logout</Nav.Link>
+                <Nav.Link href="/cart">Cart</Nav.Link> */}
+                <OrderBtn />
+                <Nav.Link href="/logout"> <LogoutSideBtn /> </Nav.Link>
                 </>
             )
         }else{
@@ -64,7 +66,7 @@ function NavBar(props) {
     }
 
     return (
-        <Navbar bg="light" expand="lg" >
+        <Navbar bg="light" expand="lg" sticky="top" >
             <Navbar.Brand href="/">
                 <img
                     alt=""

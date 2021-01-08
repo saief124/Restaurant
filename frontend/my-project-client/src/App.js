@@ -3,13 +3,15 @@ import NavBar from './components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LandingPage from './components/LandingPage'
 import Menu from './components/Menu'
-import About from './components/About'
 import Contact from './components/Contact'
 import OrderContainer from './components/OrderContainer'
 import Cart from './components/Cart'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Checkout from './components/Checkout'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
+import FooterBar from './components/FooterBar'
+
 
 let cartUrl = "http://localhost:3000/carts"
 class App extends React.Component { 
@@ -56,13 +58,7 @@ class App extends React.Component {
             <NavBar handleLogin={this.handleLogin} isLoggedIn={this.state.isLoggedIn} />
             <Route exact path ="/" component= {LandingPage} />
             <Route exact path ="/menu" component={Menu} />
-            {/* //   return <Menu menu={this.state.menu} addToCart={this.addToCart} />
-            // }}/> */}
-            <Route exact path ="/about" component= {About} />
             <Route exact path ="/contact" component= {Contact} />
-            {/* <Route exact path ="/cart" component={() => {
-              return <Cart cart={this.state.cart} />
-            }}/> */}
             <Route exact path ="/order" component= {()=>{
               if(localStorage.getItem('auth_key')){
                 return <OrderContainer />
@@ -84,6 +80,7 @@ class App extends React.Component {
               this.setState({isLoggedIn: false})
               return <Redirect to="/"/>
             }}/>
+            <FooterBar> </FooterBar>
           </Router>
         </div>
       );

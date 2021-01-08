@@ -6,7 +6,8 @@ import StripeCheckout from 'react-stripe-checkout'
 let item_orderUrl = "http://localhost:3000/item_orders"
 class Cart extends React.Component {
     state={
-        cart_items: []
+        cart_items: [],
+        // new_items: []
     }
 
 
@@ -35,6 +36,35 @@ class Cart extends React.Component {
             cart_items: array
         })
         
+    }
+
+    addItem = (item) => {
+        console.log(item.menu_item_id)
+        const order_item={
+            cart_id: localStorage.getItem('cart_id'),
+            menu_item_id: item.menu_item_id
+        }
+        fetch(item_orderUrl,{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'Auth-Key': localStorage.getItem('auth_key')
+            },
+            body: JSON.stringify(order_item)
+            })
+                    // .then(res=>res.json())
+                    // .then(order=> { 
+                    //     const newOrder=[...this.state.cart_items, order]
+                    //     this.setState({cart_items: newOrder})
+                    //     this.setState({new_items: order})
+                    // })
+
+                    // fetch(item_orderUrl)
+                    // .then(res=>res.json())
+                    // .then(cart_items=> this.setState({cart_items}))
+
+                    
+                    window.location.reload()
     }
     
     handleToken=(token, addresses)=>{
