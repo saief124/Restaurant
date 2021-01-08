@@ -32,13 +32,13 @@ export default function cartContainer(props) {
         fontSize: 25
     }
 
-         button = <button onClick={() =>  window.location.href='checkout'}>Checkout</button>
+        //  button = <button onClick={() =>  window.location.href='checkout'}>Checkout</button>
          subtotal = <p style={subStyle}>  Subtotal: ${totalBeforeTaxes.toFixed(2)} </p>
          tax = <p style={subStyle}>Taxes: ${taxes.toFixed(2)}</p>
          total = <p style={totalStyle}> Total: ${totalAfterTaxes.toFixed(2)}</p>
 
     if (price > 0) {
-      button = <Button variant="info"> Checkout</Button>
+      button = <Button variant="info" onClick={() =>  window.location.href='checkout'}> Checkout</Button>
     }
     
     localStorage.setItem('total',`${totalAfterTaxes}`)

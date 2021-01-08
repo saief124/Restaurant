@@ -16,7 +16,8 @@ function Contact() {
 
     const sub = {
         textAlign: "center",
-        fontFamily: "PT Sans"
+        fontFamily: "PT Sans",
+        fontSize: 20
     }
     const location = {
         address: '1920 S Congress Ave, Austin, TX 78704',
