@@ -35,7 +35,7 @@ export default function ReceiptContainer(props) {
     total = <p style={totalStyle}> ${totalAfterTaxes.toFixed(2)}</p>
 
     if (price > 0) {
-      button = <Button variant="info" onClick={() =>  window.location.href='checkout'}> Checkout</Button>
+      button = <Button variant="info" onClick={() =>  window.location.href='checkout'}> Pay at Restaurant</Button>
     }
     
     localStorage.setItem('total',`${totalAfterTaxes}`)
