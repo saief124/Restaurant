@@ -35,7 +35,7 @@ export default function cartContainer(props) {
     total = <p style={totalStyle}> Total: ${totalAfterTaxes.toFixed(2)}</p>
 
     if (price > 0) {
-      button = <Button variant="info" onClick={() =>  alert("Your order has been placed")}> Pay at Restaurant</Button>
+      button = <Button variant="info" onClick={() =>  alert("Your order has been placed")}> Confirm Order</Button>
     }
     
     localStorage.setItem('total',`${totalAfterTaxes}`)
